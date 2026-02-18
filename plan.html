@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Sri Lanka | Official Travel Guide</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/commonimages/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/commonimages/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/commonimages/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="images/commonimages/favicon_io/site.webmanifest">
+
+    <!-- === Google Fonts === -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="plan.css">
+    <link rel="stylesheet" href="home&common.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="container nav">
+        <div>
+            <a href="home.html" target="_blank">
+                <img src="images/commonimages/white-horizontal-tr.png" class="logo-styles" alt="">
+            </a>
+        </div>
+        <div>
+            <a href="home.html" class="head-tag">
+                VISIT <img src="images/homeimages/flag.jpg" class="flag-styles" alt=""> SRILANKA
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="destinations.html" target="_self">Destinations</a></li>
+                <li><a href="experiences.html" target="_blank">Experiences</a></li>
+                <li><a href="plan.html" target="_blank">Plan Your Trip</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="plan-form-section background-image" id="form">
+    <form class="plan-form">
+
+        <!-- PERSONAL DETAILS -->
+        <h2>Your Details</h2>
+
+        <div class="form-group">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+        </div>
+
+        <div class="form-group">
+            <input type="tel" placeholder="Phone Number">
+            <input type="text" placeholder="Country">
+        </div>
+
+        <!-- TRIP DETAILS -->
+        <h2>Trip Details</h2>
+
+        <div class="form-group">
+            <label>
+                Arrival Date
+                <input type="date" required>
+            </label>
+
+            <label>
+                Departure Date
+                <input type="date" required>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <input type="number" min="1" placeholder="Number of Days" id="days" required>
+            <input type="number" min="1" placeholder="Number of People" id="people" required>
+        </div>
+
+        <!-- DESTINATIONS -->
+        <h2>Places You Want to Visit</h2>
+        <p class="hint">Select all destinations you are interested in. Visit the destinations page to view the estimated cost of each destination. <a href="destinations.html">Take me there.</a></p>
+
+        <div class="destinations-grid">
+
+            <!-- Hill Country -->
+            <label><input type="checkbox" name="places" value="kandy" cost="6500"> Kandy</label>
+            <label><input type="checkbox" name="places" value="nuwaraeliya" cost="8000"> Nuwara Eliya</label>
+            <label><input type="checkbox" name="places" value="ella" cost="9000"> Ella</label>
+            <label><input type="checkbox" name="places" value="haputale" cost="7500"> Haputale</label>
+            <label><input type="checkbox" name="places" value="badulla" cost="5500"> Badulla</label>
+
+            <!-- Down South -->
+            <label><input type="checkbox" name="places" value="galle" cost="5000"> Galle</label>
+            <label><input type="checkbox" name="places" value="mirissa" cost="9500"> Mirissa</label>
+            <label><input type="checkbox" name="places" value="hikkaduwa" cost="8500"> Hikkaduwa</label>
+            <label><input type="checkbox" name="places" value="yala" cost="6000"> Yala National Park</label>
+
+            <!-- Cultural Triangle -->
+            <label><input type="checkbox" name="places" value="sigiriya" cost="7500"> Sigiriya</label>
+            <label><input type="checkbox" name="places" value="anuradhapura" cost="6500"> Anuradhapura</label>
+            <label><input type="checkbox" name="places" value="polonnaruwa" cost="6500"> Polonnaruwa</label>
+            <label><input type="checkbox" name="places" value="dambulla" cost="5000"> Dambulla</label>
+
+            <!-- East Coast -->
+            <label><input type="checkbox" name="places" value="trincomalee" cost="6500"> Trincomalee</label>
+            <label><input type="checkbox" name="places" value="arugambay" cost="7000"> Arugam Bay</label>
+            <label><input type="checkbox" name="places" value="pasikudah" cost="8000"> Pasikudah</label>
+
+        </div>
+
+        <!-- EXTRA MESSAGE -->
+        <h2>Anything Else?</h2>
+        <textarea placeholder="Tell us about special requests, budget range, or experiences you love..."></textarea>
+
+        <!-- SUBMIT -->
+        <button class="submit-btn" id="calculateBtn">
+            Create My Travel Plan
+        </button>
+
+        <p class="total-cost"><br><br>
+            Total estimated cost: <span id="totalCost">Rs. 0.00/=</span>
+        </p>
+
+    </form>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="container footer-grid">
+
+        <div class="footer-brand">
+            <a href="home.html" target="_blank">
+                <img src="images/commonimages/white-horizontal-tr.png" alt="Logo" class="footer-logo">
+            </a>
+            <h3>Explore Sri Lanka</h3>
+            <p>
+                Your trusted guide to discovering Sri Lanka's breathtaking landscapes,
+                rich culture, wildlife, and unforgettable experiences.
+            </p>
+        </div>
+
+        <div class="slide-right">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="destinations.html" target="_blank">Destinations</a></li>
+                <li><a href="experiences.html" target="_blank">Experiences</a></li>
+                <li><a href="plan.html" target="_blank">Plan Your Trip</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-envelope"></i> info@srilankatravel.com</p> <br>
+            <p><i class="fas fa-phone"></i> +94 75 054 0678</p> <br>
+            <p><i class="fas fa-location-dot"></i> Sri Lanka</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 Sri Lanka Travel. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="plan.js"></script>
+
+</body>
+</html>

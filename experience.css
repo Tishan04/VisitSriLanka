@@ -1,0 +1,172 @@
+.hero {
+    height: 100vh;
+    background: url('../images/experiences/experience.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.experience-nav {
+    position: sticky;
+    top: 0;
+    background: #ffffffee; /* slight transparency for overlay effect */
+    backdrop-filter: blur(8px); /* soft blur behind nav */
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    padding: 31px;
+    display: flex;
+    justify-content: center;
+}
+
+.experience-nav ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.experience-nav ul li a {
+    text-decoration: none;
+    color: #2d6a4f;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 17px;
+    transition: all 0.5s ease;
+    position: relative;
+}
+
+.experience-nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 4px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #2d6a4f, #74c69d);
+    transition: width 0.5s ease;
+}
+
+.experience-nav ul li a:hover::after,
+.experience-nav ul li a.active::after {
+    width: 50%;
+}
+
+.experience-nav ul li a:hover {
+    color:#2d6a4f;
+}
+
+
+.experience {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 70px 8%;
+    text-align: justify;
+}
+
+.experience:nth-child(even) {
+    background: #ededed;
+    flex-direction: row-reverse;
+}
+
+/* ---------- TEXT ---------- */
+.experience-text {
+    max-width: 60%;
+    flex: 1;
+}
+
+.experience-text h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.experience-text p {
+    margin: 15px 0;
+    line-height: 1.8;
+    color: #464646;
+    margin-bottom: 35px;
+}
+
+/* ---------- IMAGE ---------- */
+.experience-image {
+    flex: 1;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+    max-width: 40%;
+}
+
+.experience-image img {
+    width: 100%;
+    scale: 1.037;
+    transition: transform 1s ease;
+}
+
+.experience:hover img {
+    transform: scale(1.09);
+}
+
+/* ---------- BUTTON ---------- */
+.experience-btn {
+    padding: 10px 25px;
+    border-radius: 30px;
+    background: transparent;
+    border: 2px solid #2d6a4f;
+    color: #2d6a4f;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.experience-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #2d6a4f, #74c69d);
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); /* fully hidden initially */
+    transition: clip-path 0.5s ease;
+    z-index: -1;
+}
+
+.experience-btn:hover::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* reveal fully */
+}
+
+.experience-btn:hover {
+    color: #000000;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.experience-btn {
+    transform: translateY(0);
+    transition: transform 1s ease;
+}
+
+.experience-btn:hover {
+    transform: translateY(-6px);
+}
+
+
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .experience {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .experience:nth-child(even) {
+        flex-direction: column;
+    }
+}
