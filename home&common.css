@@ -103,7 +103,7 @@ nav ul li a.active::after {
 /* HERO SECTION STYLES */
 .hero {
     height: 100vh;
-    background: url('../images/homeimages/hero.jpg') center/cover no-repeat;
+    background: url('images/homeimages/hero.jpg') center/cover no-repeat;
     position: relative;
 }
 
@@ -540,3 +540,4 @@ nav ul li a.active::after {
         flex: 0 0 100%;
     }
 }
+
