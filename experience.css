@@ -1,6 +1,6 @@
 .hero {
     height: 100vh;
-    background: url('../images/experiences/experience.jpg') center/cover no-repeat;
+    background: url('images/experiences/experience.jpg') center/cover no-repeat;
     position: relative;
 }
 
@@ -170,3 +170,4 @@
         flex-direction: column;
     }
 }
+
