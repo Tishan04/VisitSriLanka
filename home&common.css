@@ -281,7 +281,7 @@ nav ul li a.active::after {
 
 /* STYLES OF THE EXPERIENCE PART */
 .bg-image{
-    background: url('../images/homeimages/experience.jpg') center/cover no-repeat;
+    background: url('images/homeimages/experience.jpg') center/cover no-repeat;
     padding-block: 100px;
 }
 
@@ -540,4 +540,5 @@ nav ul li a.active::after {
         flex: 0 0 100%;
     }
 }
+
 
