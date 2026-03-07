@@ -10,8 +10,6 @@ Responsive website developed using HTML, CSS, and JavaScript
 <img src="https://img.shields.io/badge/JavaScript-Interactivity-yellow">
 </p>
 
-<hr>
-
 <h2>Overview</h2>
 <p>
 This project involves the development of a responsive website using HTML, CSS, and JavaScript.
