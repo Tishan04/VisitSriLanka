@@ -44,7 +44,7 @@ on building a clean interface, well-organized content, and basic dynamic functio
 
 <h2>Project Preview</h2>
 <p align="center">
-<img src="screenshot.png" width="800">
+<img src="screenshot.png" width="100%">
 </p>
 
 <h2>Purpose</h2>
