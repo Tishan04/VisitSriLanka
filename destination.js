@@ -1,4 +1,4 @@
-// ================= DESTINATIONS PAGE JS =================
+// ================= DESTINATIONS PAGE JAVASCRIPT CODE =================
     const searchInput = document.getElementById("searchInput");
     const cards1 = document.querySelectorAll("#destinationContainer .destinationcard");
 
@@ -135,4 +135,5 @@
     };
 
     window.addEventListener("scroll", fadeInOnScroll);
+
     window.addEventListener("load", fadeInOnScroll);
