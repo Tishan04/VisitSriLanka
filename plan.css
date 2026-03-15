@@ -81,7 +81,6 @@
     gap: 6px;
 }
 
-/* TEXTAREA */
 .plan-form textarea {
     min-height: 120px;
     resize: vertical;
