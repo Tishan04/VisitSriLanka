@@ -49,7 +49,6 @@
     // ======= SEE MORE BUTTON FUNCTIONALITY FOR THE DOWN SOUTH DESTINATIONS =======
     const cards3 = document.querySelectorAll("#downSouth .destinationcard");
     const seeMoreBtn1 = document.getElementById("seeMoreBtn1");
-
     let expanded1 = false;
 
     cards3.forEach((card1, index) => {
