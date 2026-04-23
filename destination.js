@@ -26,7 +26,6 @@
     // ======= SEE MORE BUTTON FUNCTIONALITY FOR THE HILL COUNTRY DESTINATIONS =======
     const cards2 = document.querySelectorAll("#hillCountry .destinationcard");
     const seeMoreBtn = document.getElementById("seeMoreBtn");
-
     let expanded = false;
 
     cards2.forEach((card, index) => {
