@@ -110,7 +110,6 @@
 
     seeMoreBtn3.addEventListener("click", () => {
         expanded3 = !expanded3;
-
         cards5.forEach((card3, index) => {
             if (index >= 3) {
                 card3.classList.toggle("hidden", !expanded3);
