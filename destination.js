@@ -6,9 +6,8 @@
         searchInput.addEventListener("input", () => {
             const query = searchInput.value.toLowerCase();
             const container = document.getElementById("destinationContainer");
-
             const visibleCards1 = [];
-
+            
             cards1.forEach(destinationcard => {
                 const text = destinationcard.innerText.toLowerCase();
                 if (text.includes(query)) {
