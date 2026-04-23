@@ -95,7 +95,6 @@
     // ======= SEE MORE BUTTON FUNCTIONALITY FOR THE EAST COAST DESTINATIONS =======
     const cards5 = document.querySelectorAll("#eastCoast .destinationcard");
     const seeMoreBtn3 = document.getElementById("seeMoreBtn3");
-
     let expanded3 = false;
 
     cards5.forEach((card3, index) => {
