@@ -72,7 +72,6 @@
     // ======= SEE MORE BUTTON FUNCTIONALITY FOR THE CULTURAL TRIANGLE DESTINATIONS =======
     const cards4 = document.querySelectorAll("#culturalTriangle .destinationcard");
     const seeMoreBtn2 = document.getElementById("seeMoreBtn2");
-
     let expanded2 = false;
 
     cards4.forEach((card2, index) => {
