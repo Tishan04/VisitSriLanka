@@ -116,7 +116,6 @@
 
     //fade in for all the sections
     const fadeElements = document.querySelectorAll(".fade-in");
-
     const fadeInOnScroll = () => {
         fadeElements.forEach(el => {
             const rect = el.getBoundingClientRect();
