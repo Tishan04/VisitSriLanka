@@ -37,7 +37,6 @@
         if (index > cards.length - visibleCards) {
             index = 0;
         }
-
         const cardWidth = cards[0].offsetWidth + 30;
         slider.style.transform = `translateX(-${index * cardWidth}px)`;
     }
