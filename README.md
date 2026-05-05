@@ -40,7 +40,7 @@ on building a clean interface, well-organized content, and basic dynamic functio
 <li>Simple and user-friendly navigation</li>
 </ul>
 
-<h2>Project Preview</h2>
+<h2>Project Preview (Landing Page)</h2>
 <p align="center">
 <img src="screenshot.png" width="100%">
 </p>
