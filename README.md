@@ -8,6 +8,7 @@ Responsive website developed using HTML, CSS, and JavaScript
 <img src="https://img.shields.io/badge/HTML-Structure-orange">
 <img src="https://img.shields.io/badge/CSS-Styling-blue">
 <img src="https://img.shields.io/badge/JavaScript-Interactivity-yellow">
+  <img src="https://img.shields.io/badge/php">
 </p>
 
 <h2>Overview</h2>
@@ -22,6 +23,7 @@ development skills including webpage structure, styling, and client-side interac
 <li>HTML</li>
 <li>CSS</li>
 <li>JavaScript</li>
+<li>PHP</li>
 </ul>
 
 <h2>Project Description</h2>
