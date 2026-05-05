@@ -8,7 +8,7 @@ Responsive website developed using HTML, CSS, and JavaScript
 <img src="https://img.shields.io/badge/HTML-Structure-orange">
 <img src="https://img.shields.io/badge/CSS-Styling-blue">
 <img src="https://img.shields.io/badge/JavaScript-Interactivity-yellow">
-  <img src="https://img.shields.io/badge/php">
+<img src="https://img.shields.io/badge/php">
 </p>
 
 <h2>Overview</h2>
