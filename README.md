@@ -5,10 +5,10 @@ Responsive website developed using HTML, CSS, and JavaScript
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/HTML-Structure-orange">
-<img src="https://img.shields.io/badge/CSS-Styling-blue">
-<img src="https://img.shields.io/badge/JavaScript-Interactivity-yellow">
-<img src="https://img.shields.io/badge/php">
+  <img src="https://img.shields.io/badge/HTML-Structure-orange">
+  <img src="https://img.shields.io/badge/CSS-Styling-blue">
+  <img src="https://img.shields.io/badge/JavaScript-Interactivity-yellow">
+  <img src="https://img.shields.io/badge/PHP-Backend-777BB4?logo=php&logoColor=white">
 </p>
 
 <h2>Overview</h2>
