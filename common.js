@@ -33,7 +33,6 @@
 
     function slideDestinations() {
         index++;
-
         if (index > cards.length - visibleCards) {
             index = 0;
         }
