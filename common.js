@@ -45,7 +45,6 @@
         setInterval(slideDestinations, 3000);
     }
 
-
     //fade in for all the sections
     const fadeElements = document.querySelectorAll(".fade-in");
 
