@@ -30,8 +30,8 @@ development skills including webpage structure, styling, and client-side interac
 <p>
 HTML was used to create the structure and content of the webpages, while CSS was used to
 design and style the layout and improve the visual appearance of the website. JavaScript
-was incorporated to add interactivity and enhance the user experience. The project focuses
-on building a clean interface, well-organized content, and basic dynamic functionality.
+was incorporated to add interactivity and enhance the user experience. The database communication is handled using PHP and the publicly 
+available XAMPP servers. The project focuses on building a clean interface, well-organized content, and basic dynamic functionality.
 </p>
 
 <h2>Features</h2>
