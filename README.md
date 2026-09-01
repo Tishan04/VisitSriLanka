@@ -40,6 +40,7 @@ on building a clean interface, well-organized content, and basic dynamic functio
 <li>Responsive and styled user interface using CSS</li>
 <li>Interactive functionality implemented with JavaScript</li>
 <li>Simple and user-friendly navigation</li>
+<li>Saving each Plan submission on the database</li>
 </ul>
 
 <h2>Project Preview (Landing Page)</h2>
