@@ -171,3 +171,74 @@
     }
 }
 
+
+
+/* ================= CORRECTIONS & RESPONSIVE OVERRIDES ================= */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+.experience-nav {
+    z-index: 900;
+}
+
+.experience-image img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+}
+
+.experience-btn {
+    isolation: isolate;
+}
+
+@media (max-width: 900px) {
+    .experience-nav {
+        position: static;
+        padding: 20px 12px;
+    }
+
+    .experience-nav ul {
+        justify-content: center;
+        gap: 6px 12px;
+    }
+
+    .experience-nav ul li a {
+        display: inline-block;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .experience,
+    .experience:nth-child(even) {
+        flex-direction: column;
+        gap: 28px;
+        padding: 55px 6%;
+        text-align: left;
+    }
+
+    .experience-text,
+    .experience-image {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .experience-image img {
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 560px) {
+    .experience {
+        padding: 45px 5%;
+    }
+
+    .experience-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .experience-image {
+        border-radius: 20px;
+    }
+}
