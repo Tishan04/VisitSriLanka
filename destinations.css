@@ -289,3 +289,131 @@
     }
 }
 
+
+
+/* CORRECTIONS & RESPONSIVE OVERRIDES */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+.search-wrapper {
+    width: min(520px, 80%);
+}
+
+#searchInput:focus {
+    box-shadow: 0 0 0 4px rgba(244, 196, 48, 0.24);
+    border-color: #f4c430;
+}
+
+.destinations-nav {
+    z-index: 900;
+}
+
+.destinationcard[hidden],
+.section[hidden],
+.no-results[hidden] {
+    display: none !important;
+}
+
+.no-results {
+    width: min(760px, 90%);
+    margin: 35px auto;
+    padding: 18px 22px;
+    text-align: center;
+    background: #fff7d7;
+    border: 1px solid #f4c430;
+    border-radius: 12px;
+    color: #5b4a0a;
+    font-weight: 600;
+}
+
+.card-image img,
+.card-map iframe {
+    width: 100%;
+    display: block;
+}
+
+.card-map iframe {
+    min-height: 300px;
+}
+
+.see-more-btn {
+    isolation: isolate;
+}
+
+@media (max-width: 900px) {
+    .destinations-nav {
+        position: static;
+        padding: 20px 12px;
+    }
+
+    .destinations-nav ul {
+        justify-content: center;
+        gap: 6px 12px;
+    }
+
+    .destinations-nav ul li a {
+        display: inline-block;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .destinationcard {
+        flex-direction: column;
+        margin: 24px 5%;
+    }
+
+    .destination-title {
+        margin-bottom: 0;
+    }
+
+    .card-info,
+    .card-image,
+    .card-map {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .card-info {
+        padding: 28px;
+    }
+
+    .card-image img {
+        height: 320px;
+        object-fit: cover;
+    }
+
+    .card-map iframe {
+        height: 280px;
+        min-height: 280px;
+        border-radius: 0 0 15px 15px;
+    }
+}
+
+@media (max-width: 560px) {
+    .search-wrapper {
+        width: 90%;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .destinationcard {
+        margin: 18px 4%;
+    }
+
+    .card-info {
+        padding: 22px;
+    }
+
+    .card-image img {
+        height: 230px;
+    }
+
+    .card-map iframe {
+        height: 220px;
+        min-height: 220px;
+    }
+}
