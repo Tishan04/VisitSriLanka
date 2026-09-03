@@ -96,7 +96,6 @@ nav ul li a.active::after {
     width: 60%;
 }
 
-/* HERO SECTION STYLES */
 .hero {
     height: 100vh;
     background: url('images/homeimages/hero.jpg') center/cover no-repeat;
@@ -136,8 +135,7 @@ nav ul li a.active::after {
     text-decoration: none;
     font-weight: 600;
     border-radius: 30px;
-    transition: 
-        transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .btn:hover{
