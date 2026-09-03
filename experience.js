@@ -1,5 +1,3 @@
-// EXPERIENCES PAGE JAVASCRIPT
-
 document.addEventListener("DOMContentLoaded", () => {
     const links = Array.from(document.querySelectorAll(".experience-nav a"));
     const sections = links
