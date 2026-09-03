@@ -1,5 +1,3 @@
-// ================= PLAN YOUR TRIP JAVASCRIPT =================
-
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("planForm");
     const arrivalInput = document.getElementById("arrivalDate");
