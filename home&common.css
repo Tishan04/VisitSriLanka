@@ -230,13 +230,11 @@ nav ul li a.active::after {
     padding: 0 15px 20px;
 }
 
-/* SLIDER WRAPPER STYLES */
 .slider-wrapper {
     overflow: hidden;
     position: relative;
 }
 
-/* SLIDER TRACK */
 .slider-track {
     display: flex;
     gap: 30px;
