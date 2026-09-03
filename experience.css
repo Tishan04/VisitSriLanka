@@ -153,8 +153,7 @@
     transform: translateY(-6px);
 }
 
-
-/* ---------- RESPONSIVE ---------- */
+/* RESPONSIVE */
 @media (max-width: 900px) {
     .experience {
         flex-direction: column;
@@ -165,8 +164,6 @@
         flex-direction: column;
     }
 }
-
-
 
 /* CORRECTIONS & RESPONSIVE OVERRIDES */
 html {
