@@ -1,5 +1,3 @@
-// ================= COMMON + HOME PAGE JAVASCRIPT =================
-
 document.addEventListener("DOMContentLoaded", () => {
     // Highlight the current main navigation item.
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
