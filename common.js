@@ -1,63 +1,98 @@
-// ================= HOME PAGE AND COMMON JS =================
-//image slider in the culture part
-    const cultureImages = document.querySelectorAll(".culture-carousel1 img");
-    const cultureImages2 = document.querySelectorAll(".culture-carousel2 img");
-    let cultureIndex = 0;
-    let cultureIndex2 = 0;
+// ================= COMMON + HOME PAGE JAVASCRIPT =================
 
-    function changeCultureImage() {
-        cultureImages[cultureIndex].classList.remove("active");
-        cultureIndex = (cultureIndex + 1) % cultureImages.length;
-        cultureImages[cultureIndex].classList.add("active");
-    }
-
-    function changeCultureImage2() {
-        cultureImages2[cultureIndex2].classList.remove("active");
-        cultureIndex2 = (cultureIndex2 + 1) % cultureImages2.length;
-        cultureImages2[cultureIndex2].classList.add("active");
-    }
-
-    //timer to swap the images
-    if (cultureImages.length > 0) {
-        setInterval(changeCultureImage, 3000);
-    }
-    if (cultureImages2.length > 0) {
-        setInterval(changeCultureImage2, 3000);
-    }
-
-    //cards slider in the destinations section
-    const slider = document.getElementById("destinationSlider");
-    const cards = slider.children;
-    const visibleCards = 4;
-    let index = 0;
-
-    function slideDestinations() {
-        index++;
-        if (index > cards.length - visibleCards) {
-            index = 0;
+document.addEventListener("DOMContentLoaded", () => {
+    // Highlight the current main navigation item.
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".header nav a").forEach(link => {
+        const linkPage = link.getAttribute("href")?.split("#")[0];
+        if (linkPage === currentPage) {
+            link.classList.add("active");
+            link.setAttribute("aria-current", "page");
         }
-        const cardWidth = cards[0].offsetWidth + 30;
-        slider.style.transform = `translateX(-${index * cardWidth}px)`;
-    }
+    });
 
-    //timer to swap the cards
-    if (slider) {
-        setInterval(slideDestinations, 3000);
-    }
-
-    //fade in for all the sections
+    // Fade sections in when they enter the viewport.
     const fadeElements = document.querySelectorAll(".fade-in");
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
 
-    const fadeInOnScroll = () => {
-        fadeElements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+        fadeElements.forEach(element => observer.observe(element));
+    } else {
+        fadeElements.forEach(element => element.classList.add("show"));
+    }
 
-            if (rect.top < windowHeight - 100) {
-                el.classList.add("show");
-            }
-        });
+    // Home page: culture image carousels.
+    setupImageCarousel(".culture-carousel1 img", 3000);
+    setupImageCarousel(".culture-carousel2 img", 3000);
+
+    // Home page: destination card slider.
+    setupDestinationSlider();
+});
+
+function setupImageCarousel(selector, intervalMs) {
+    const images = Array.from(document.querySelectorAll(selector));
+    if (images.length < 2) return;
+
+    let currentIndex = Math.max(0, images.findIndex(image => image.classList.contains("active")));
+    images.forEach((image, index) => image.classList.toggle("active", index === currentIndex));
+
+    window.setInterval(() => {
+        images[currentIndex].classList.remove("active");
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add("active");
+    }, intervalMs);
+}
+
+function setupDestinationSlider() {
+    const slider = document.getElementById("destinationSlider");
+    if (!slider || slider.children.length === 0) return;
+
+    const cards = Array.from(slider.children);
+    let currentIndex = 0;
+    let timerId;
+
+    const visibleCardCount = () => {
+        if (window.innerWidth <= 576) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 4;
     };
 
-    window.addEventListener("scroll", fadeInOnScroll);
-    window.addEventListener("load", fadeInOnScroll);
+    const updateSlider = () => {
+        const visibleCards = visibleCardCount();
+        const maxIndex = Math.max(0, cards.length - visibleCards);
+        currentIndex = Math.min(currentIndex, maxIndex);
+
+        const gap = parseFloat(getComputedStyle(slider).gap) || 0;
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        slider.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+    };
+
+    const moveToNext = () => {
+        const maxIndex = Math.max(0, cards.length - visibleCardCount());
+        currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+        updateSlider();
+    };
+
+    const startSlider = () => {
+        if (timerId) window.clearInterval(timerId);
+        if (cards.length > visibleCardCount()) {
+            timerId = window.setInterval(moveToNext, 3000);
+        }
+    };
+
+    updateSlider();
+    startSlider();
+
+    window.addEventListener("resize", () => {
+        currentIndex = 0;
+        updateSlider();
+        startSlider();
+    });
+}
