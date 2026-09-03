@@ -181,9 +181,7 @@ nav ul li a.active::after {
 .fade-in {
     opacity: 0;
     transform: translateY(50px);
-    transition: 
-        opacity 0.8s ease-out, 
-        transform 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .fade-in.show {
