@@ -29,8 +29,7 @@ body {
 
 .logo-styles{
     max-width: 80%;
-    transition: 
-        transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .logo-styles:hover{
