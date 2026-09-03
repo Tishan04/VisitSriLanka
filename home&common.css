@@ -172,12 +172,10 @@ nav ul li a.active::after {
     width: 200px;
 }
 
-/* STYLES OF SECTIONS */
 .section {
     padding: 80px 0;
 }
 
-/* FADE-IN ON SCROLL */
 .fade-in {
     opacity: 0;
     transform: translateY(50px);
