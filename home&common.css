@@ -10,13 +10,11 @@ body {
     color: #333;
 }
 
-/* CONTAINERS */
 .container {
     max-width: 96%;
     margin: auto;
 }
 
-/* THE HEADER STYLES */
 .header {
     position: fixed;
     width: 100%;
@@ -59,8 +57,7 @@ nav ul {
 
 nav ul li {
     margin-left: 15px;
-    transition: 
-        transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 nav ul li:hover{
@@ -147,7 +144,7 @@ nav ul li a.active::after {
 .btn:hover{
     transform: scale(1.08);
     background: linear-gradient(90deg, #f4c430, #ffe083);
-    border: 2px solid f4c430;
+    border: 2px solid #f4c430;
 }
 
 .section h2 {
@@ -538,5 +535,212 @@ nav ul li a.active::after {
 @media (max-width: 576px) {
     .slider-track .card {
         flex: 0 0 100%;
+    }
+}
+
+
+/* ================= CORRECTIONS & RESPONSIVE OVERRIDES ================= */
+.header {
+    z-index: 1200;
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: minmax(120px, 170px) minmax(320px, 1fr) auto;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.nav > div:first-child a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo-styles {
+    display: block;
+    width: 145px;
+    max-width: 100%;
+    height: auto;
+}
+
+.head-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    font-size: clamp(30px, 3.5vw, 50px);
+    line-height: 1;
+}
+
+.flag-styles {
+    width: clamp(34px, 3.6vw, 52px);
+    max-width: none;
+    height: auto;
+}
+
+nav ul {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li:hover {
+    transform: translateY(3px) scale(1.03);
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 12px 0 16px;
+    white-space: nowrap;
+}
+
+.hero-content {
+    padding: 110px 20px 30px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.3rem, 5vw, 3.75rem);
+    line-height: 1.15;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.45rem);
+}
+
+.fade-in.show {
+    visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .nav {
+        grid-template-columns: 130px minmax(250px, 1fr) auto;
+        gap: 14px;
+    }
+
+    nav ul {
+        gap: 14px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 850px) {
+    .header {
+        background: rgba(0, 0, 0, 0.88);
+    }
+
+    .nav {
+        grid-template-columns: auto 1fr;
+        gap: 8px 16px;
+        padding: 9px 0 10px;
+    }
+
+    .logo-styles {
+        width: 110px;
+    }
+
+    .head-tag {
+        justify-self: end;
+        font-size: clamp(24px, 5.5vw, 38px);
+    }
+
+    nav {
+        grid-column: 1 / -1;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+    }
+
+    nav ul li a {
+        padding: 7px 0 10px;
+        font-size: 15px;
+    }
+
+    .split {
+        grid-template-columns: 1fr;
+    }
+
+    .culture-carousel1,
+    .culture-carousel2 {
+        margin-top: 0;
+        height: 360px;
+    }
+
+    .slide-right {
+        padding-left: 0;
+    }
+
+    .footer-logo {
+        width: min(240px, 80%);
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        max-width: 92%;
+    }
+
+    .nav {
+        grid-template-columns: 82px 1fr;
+    }
+
+    .logo-styles {
+        width: 82px;
+    }
+
+    .head-tag {
+        gap: 7px;
+        font-size: clamp(20px, 6vw, 28px);
+    }
+
+    .flag-styles {
+        width: 30px;
+    }
+
+    nav ul {
+        gap: 4px 16px;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    .hero-content {
+        padding-top: 145px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section h2 {
+        font-size: 29px;
+        margin-top: 0;
+    }
+
+    .culture-carousel1,
+    .culture-carousel2 {
+        height: 280px;
     }
 }
