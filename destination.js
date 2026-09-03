@@ -1,5 +1,3 @@
-// DESTINATIONS PAGE JAVASCRIPT
-
 document.addEventListener("DOMContentLoaded", () => {
     const groups = [
         setupExpandableGroup("hillCountry", "seeMoreBtn", "See More Hill Country Destinations"),
