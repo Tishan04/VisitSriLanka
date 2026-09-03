@@ -1,4 +1,4 @@
-// ================= DESTINATIONS PAGE JAVASCRIPT =================
+// DESTINATIONS PAGE JAVASCRIPT
 
 document.addEventListener("DOMContentLoaded", () => {
     const groups = [
