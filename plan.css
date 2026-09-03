@@ -146,7 +146,6 @@
     box-shadow: 0 12px 30px rgba(45,106,79,0.35);
 }
 
-/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
     .plan-form {
         padding: 40px 25px;
@@ -157,8 +156,6 @@
     }
 }
 
-
-/* ================= CORRECTIONS & RESULT STYLES ================= */
 .plan-form input[readonly] {
     background: #f3f5f4;
     color: #555;
