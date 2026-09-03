@@ -1,132 +1,116 @@
-// ================= DESTINATIONS PAGE JAVASCRIPT CODE =================
-    const searchInput = document.getElementById("searchInput");
-    const cards1 = document.querySelectorAll("#destinationContainer .destinationcard");
+// ================= DESTINATIONS PAGE JAVASCRIPT =================
 
-    if (searchInput){
-        searchInput.addEventListener("input", () => {
-            const query = searchInput.value.toLowerCase();
-            const container = document.getElementById("destinationContainer");
-            const visibleCards1 = [];
-            
-            cards1.forEach(destinationcard => {
-                const text = destinationcard.innerText.toLowerCase();
-                if (text.includes(query)) {
-                    destinationcard.style.display = "flex"; // works for all cards
-                    visibleCards1.push(destinationcard);
-                } else {
-                    destinationcard.style.display = "none";
+document.addEventListener("DOMContentLoaded", () => {
+    const groups = [
+        setupExpandableGroup("hillCountry", "seeMoreBtn", "See More Hill Country Destinations"),
+        setupExpandableGroup("downSouth", "seeMoreBtn1", "See More Down South Destinations"),
+        setupExpandableGroup("culturalTriangle", "seeMoreBtn2", "See More Cultural Triangle Destinations"),
+        setupExpandableGroup("eastCoast", "seeMoreBtn3", "See More East Coast Destinations")
+    ].filter(Boolean);
+
+    setupDestinationSearch(groups);
+    setupSectionNavigation(".destinations-nav a", ["hillCountry", "downSouth", "culturalTriangle", "eastCoast"]);
+});
+
+function setupExpandableGroup(sectionId, buttonId, collapsedLabel) {
+    const section = document.getElementById(sectionId);
+    const button = document.getElementById(buttonId);
+    if (!section || !button) return null;
+
+    const cards = Array.from(section.querySelectorAll(".destinationcard[id]"));
+    const initiallyVisible = 3;
+    let expanded = false;
+
+    const render = () => {
+        cards.forEach((card, index) => {
+            card.classList.toggle("hidden", !expanded && index >= initiallyVisible);
+        });
+        button.textContent = expanded ? "See Less" : collapsedLabel;
+        button.setAttribute("aria-expanded", String(expanded));
+    };
+
+    button.addEventListener("click", () => {
+        expanded = !expanded;
+        render();
+    });
+
+    render();
+
+    return {
+        section,
+        button,
+        cards,
+        restore: render
+    };
+}
+
+function setupDestinationSearch(groups) {
+    const searchInput = document.getElementById("searchInput");
+    const container = document.getElementById("destinationContainer");
+    if (!searchInput || !container) return;
+
+    const noResults = document.createElement("p");
+    noResults.className = "no-results";
+    noResults.textContent = "No destinations matched your search.";
+    noResults.hidden = true;
+    container.prepend(noResults);
+
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim().toLowerCase();
+        let totalMatches = 0;
+
+        groups.forEach(group => {
+            const headingCard = group.section.querySelector(".destination-title");
+            let groupMatches = 0;
+
+            if (!query) {
+                group.section.hidden = false;
+                if (headingCard) headingCard.hidden = false;
+                group.button.closest(".destinationcard")?.removeAttribute("hidden");
+                group.cards.forEach(card => {
+                    card.style.removeProperty("display");
+                });
+                group.restore();
+                return;
+            }
+
+            group.cards.forEach(card => {
+                const matches = card.textContent.toLowerCase().includes(query);
+                card.classList.remove("hidden");
+                card.style.display = matches ? "flex" : "none";
+                if (matches) {
+                    groupMatches += 1;
+                    totalMatches += 1;
                 }
             });
 
-            // Move matching cards to top
-            visibleCards1.forEach(c => container.appendChild(c));
-        });
-    }
-
-    // ======= SEE MORE BUTTON FUNCTIONALITY FOR THE HILL COUNTRY DESTINATIONS =======
-    const cards2 = document.querySelectorAll("#hillCountry .destinationcard");
-    const seeMoreBtn = document.getElementById("seeMoreBtn");
-    let expanded = false;
-
-    cards2.forEach((card, index) => {
-        if (index >= 3) {
-            card.classList.add("hidden");
-        }
-    });
-
-    seeMoreBtn.addEventListener("click", () => {
-        expanded = !expanded;
-
-        cards2.forEach((card, index) => {
-            if (index >= 3) {
-                card.classList.toggle("hidden", !expanded);
-            }
+            group.section.hidden = groupMatches === 0;
+            if (headingCard) headingCard.hidden = groupMatches === 0;
+            group.button.closest(".destinationcard")?.setAttribute("hidden", "");
         });
 
-        seeMoreBtn.textContent = expanded ? "See Less" : "See More Hill Country Destinations";
+        noResults.hidden = !query || totalMatches > 0;
     });
+}
 
-    // ======= SEE MORE BUTTON FUNCTIONALITY FOR THE DOWN SOUTH DESTINATIONS =======
-    const cards3 = document.querySelectorAll("#downSouth .destinationcard");
-    const seeMoreBtn1 = document.getElementById("seeMoreBtn1");
-    let expanded1 = false;
+function setupSectionNavigation(selector, sectionIds) {
+    const links = Array.from(document.querySelectorAll(selector));
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+    if (links.length === 0 || sections.length === 0 || !("IntersectionObserver" in window)) return;
 
-    cards3.forEach((card1, index) => {
-        if (index >= 3) {
-            card1.classList.add("hidden");
-        }
-    });
+    const observer = new IntersectionObserver(entries => {
+        const visibleEntry = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-    seeMoreBtn1.addEventListener("click", () => {
-        expanded1 = !expanded1;
-
-        cards3.forEach((card1, index) => {
-            if (index >= 3) {
-                card1.classList.toggle("hidden", !expanded1);
-            }
+        if (!visibleEntry) return;
+        links.forEach(link => {
+            const active = link.getAttribute("href") === `#${visibleEntry.target.id}`;
+            link.classList.toggle("active", active);
+            if (active) link.setAttribute("aria-current", "location");
+            else link.removeAttribute("aria-current");
         });
+    }, { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.1, 0.25] });
 
-        seeMoreBtn1.textContent = expanded1 ? "See Less" : "See More Down South Destinations";
-    });
-    
-    // ======= SEE MORE BUTTON FUNCTIONALITY FOR THE CULTURAL TRIANGLE DESTINATIONS =======
-    const cards4 = document.querySelectorAll("#culturalTriangle .destinationcard");
-    const seeMoreBtn2 = document.getElementById("seeMoreBtn2");
-    let expanded2 = false;
-
-    cards4.forEach((card2, index) => {
-        if (index >= 3) {
-            card2.classList.add("hidden");
-        }
-    });
-
-    seeMoreBtn2.addEventListener("click", () => {
-        expanded2 = !expanded2;
-
-        cards4.forEach((card2, index) => {
-            if (index >= 3) {
-                card2.classList.toggle("hidden", !expanded2);
-            }
-        });
-
-        seeMoreBtn2.textContent = expanded2 ? "See Less" : "See More Cultural Triangle Destinations";
-    });
-
-    // ======= SEE MORE BUTTON FUNCTIONALITY FOR THE EAST COAST DESTINATIONS =======
-    const cards5 = document.querySelectorAll("#eastCoast .destinationcard");
-    const seeMoreBtn3 = document.getElementById("seeMoreBtn3");
-    let expanded3 = false;
-
-    cards5.forEach((card3, index) => {
-        if (index >= 3) {
-            card3.classList.add("hidden");
-        }
-    });
-
-    seeMoreBtn3.addEventListener("click", () => {
-        expanded3 = !expanded3;
-        cards5.forEach((card3, index) => {
-            if (index >= 3) {
-                card3.classList.toggle("hidden", !expanded3);
-            }
-        });
-
-        seeMoreBtn3.textContent = expanded3 ? "See Less" : "See More East Coast Destinations";
-    });
-
-    //fade in for all the sections
-    const fadeElements = document.querySelectorAll(".fade-in");
-    const fadeInOnScroll = () => {
-        fadeElements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-
-            if (rect.top < windowHeight - 100) {
-                el.classList.add("show");
-            }
-        });
-    };
-
-    window.addEventListener("scroll", fadeInOnScroll);
-
-    window.addEventListener("load", fadeInOnScroll);
+    sections.forEach(section => observer.observe(section));
+}
