@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Explore Sri Lanka | Official Travel Guide</title>
+    <title>Explore Sri Lanka | Travel Guide</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -24,39 +24,39 @@
 <header class="header">
     <div class="container nav">
         <div>
-            <a href="index.html" target="_self">
+            <a href="index.html" >
                 <img src="images/commonimages/white-horizontal-tr.png" class="logo-styles" alt="Main Image">
             </a>
         </div>
         <div>
             <a href="index.html" class="head-tag">
-                VISIT <img src="images/homeimages/flag.jpg" class="flag-styles" alt="Sri Lankan Flag"> SRILANKA
+                VISIT <img src="images/homeimages/flag.jpg" class="flag-styles" alt="Sri Lankan flag"> SRI LANKA
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="destinations.html" target="_self">Destinations</a></li>
-                <li><a href="experiences.html" target="_self">Experiences</a></li>
-                <li><a href="plan.html" target="_self">Plan Your Trip</a></li>
+                <li><a href="destinations.html" >Destinations</a></li>
+                <li><a href="experiences.html" >Experiences</a></li>
+                <li><a href="plan.html" >Plan Your Trip</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <section class="plan-form-section background-image" id="form">
-    <form class="plan-form">
+    <form class="plan-form" id="planForm" novalidate>
 
         <!-- PERSONAL DETAILS -->
         <h2>Your Details</h2>
 
         <div class="form-group">
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email Address" required>
+            <input type="text" name="fullName" placeholder="Full Name" aria-label="Full Name" autocomplete="name" required>
+            <input type="email" name="email" placeholder="Email Address" aria-label="Email Address" autocomplete="email" required>
         </div>
 
         <div class="form-group">
-            <input type="tel" placeholder="Contact Number">
-            <input type="text" placeholder="Country">
+            <input type="tel" name="phone" placeholder="Contact Number" aria-label="Contact Number" autocomplete="tel">
+            <input type="text" name="country" placeholder="Country" aria-label="Country" autocomplete="country-name">
         </div>
 
         <!-- TRIP DETAILS -->
@@ -65,18 +65,18 @@
         <div class="form-group">
             <label>
                 Arrival Date
-                <input type="date" required>
+                <input type="date" id="arrivalDate" name="arrivalDate" required>
             </label>
 
             <label>
                 Departure Date
-                <input type="date" required>
+                <input type="date" id="departureDate" name="departureDate" required>
             </label>
         </div>
 
         <div class="form-group">
-            <input type="number" min="1" placeholder="Number of Days" id="days" required>
-            <input type="number" min="1" placeholder="Number of People" id="people" required>
+            <input type="number" min="1" placeholder="Number of Days" id="days" name="days" readonly required>
+            <input type="number" min="1" placeholder="Number of People" id="people" name="people" required>
         </div>
 
         <!-- DESTINATIONS -->
@@ -86,43 +86,45 @@
         <div class="destinations-grid">
 
             <!-- HILL COUNTRY -->
-            <label><input type="checkbox" name="places" value="kandy" cost="6500"> Kandy</label>
-            <label><input type="checkbox" name="places" value="nuwaraeliya" cost="8000"> Nuwara Eliya</label>
-            <label><input type="checkbox" name="places" value="ella" cost="9000"> Ella</label>
-            <label><input type="checkbox" name="places" value="haputale" cost="7500"> Haputale</label>
-            <label><input type="checkbox" name="places" value="badulla" cost="5500"> Badulla</label>
+            <label><input type="checkbox" name="places" value="kandy" data-cost="6500"> Kandy</label>
+            <label><input type="checkbox" name="places" value="nuwaraeliya" data-cost="8000"> Nuwara Eliya</label>
+            <label><input type="checkbox" name="places" value="ella" data-cost="9000"> Ella</label>
+            <label><input type="checkbox" name="places" value="haputale" data-cost="7500"> Haputale</label>
+            <label><input type="checkbox" name="places" value="badulla" data-cost="5500"> Badulla</label>
 
             <!-- DOWN SOUTH -->
-            <label><input type="checkbox" name="places" value="galle" cost="5000"> Galle</label>
-            <label><input type="checkbox" name="places" value="mirissa" cost="9500"> Mirissa</label>
-            <label><input type="checkbox" name="places" value="hikkaduwa" cost="8500"> Hikkaduwa</label>
-            <label><input type="checkbox" name="places" value="yala" cost="6000"> Yala National Park</label>
+            <label><input type="checkbox" name="places" value="galle" data-cost="5000"> Galle</label>
+            <label><input type="checkbox" name="places" value="mirissa" data-cost="9500"> Mirissa</label>
+            <label><input type="checkbox" name="places" value="hikkaduwa" data-cost="8500"> Hikkaduwa</label>
+            <label><input type="checkbox" name="places" value="yala" data-cost="6000"> Yala National Park</label>
 
             <!-- DRY LANDS -->
-            <label><input type="checkbox" name="places" value="sigiriya" cost="7500"> Sigiriya</label>
-            <label><input type="checkbox" name="places" value="anuradhapura" cost="6500"> Anuradhapura</label>
-            <label><input type="checkbox" name="places" value="polonnaruwa" cost="6500"> Polonnaruwa</label>
-            <label><input type="checkbox" name="places" value="dambulla" cost="5000"> Dambulla</label>
+            <label><input type="checkbox" name="places" value="sigiriya" data-cost="7500"> Sigiriya</label>
+            <label><input type="checkbox" name="places" value="anuradhapura" data-cost="6500"> Anuradhapura</label>
+            <label><input type="checkbox" name="places" value="polonnaruwa" data-cost="6500"> Polonnaruwa</label>
+            <label><input type="checkbox" name="places" value="dambulla" data-cost="5000"> Dambulla</label>
 
             <!-- EAST COAST -->
-            <label><input type="checkbox" name="places" value="trincomalee" cost="6500"> Trincomalee</label>
-            <label><input type="checkbox" name="places" value="arugambay" cost="7000"> Arugam Bay</label>
-            <label><input type="checkbox" name="places" value="pasikudah" cost="8000"> Pasikudah</label>
+            <label><input type="checkbox" name="places" value="trincomalee" data-cost="6500"> Trincomalee</label>
+            <label><input type="checkbox" name="places" value="arugambay" data-cost="7000"> Arugam Bay</label>
+            <label><input type="checkbox" name="places" value="pasikudah" data-cost="8000"> Pasikudah</label>
 
         </div>
 
         <!-- EXTRA MESSAGE -->
         <h2>Anything Else?</h2>
-        <textarea placeholder="Tell us about special requests, budget range, or experiences you love..."></textarea>
+        <textarea name="notes" aria-label="Additional requests" placeholder="Tell us about special requests, budget range, or experiences you love..."></textarea>
 
         <!-- SUBMIT -->
-        <button class="submit-btn" id="calculateBtn">
+        <button type="submit" class="submit-btn" id="calculateBtn">
             Create My Travel Plan
         </button>
 
-        <p class="total-cost"><br><br>
-            Total estimated cost: <span id="totalCost">Rs. 0.00/=</span>
-        </p>
+        <div class="cost-result" aria-live="polite">
+            <p class="total-cost">Total estimated cost: <span id="totalCost">Rs. 0.00/=</span></p>
+            <p class="cost-note" id="costNote">Select your travel dates, travellers, and destinations to calculate an estimate.</p>
+            <p class="save-status" id="saveStatus"></p>
+        </div>
 
     </form>
 </section>
@@ -133,7 +135,7 @@
     <div class="container footer-grid">
 
         <div class="footer-brand">
-            <a href="index.html" target="_self">
+            <a href="index.html" >
                 <img src="images/commonimages/white-horizontal-tr.png" alt="Logo" class="footer-logo">
             </a>
             <h3>Explore Sri Lanka</h3>
@@ -146,9 +148,9 @@
         <div class="slide-right">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="destinations.html" target="_self">Destinations</a></li>
-                <li><a href="experiences.html" target="_self">Experiences</a></li>
-                <li><a href="plan.html" target="_self">Plan Your Trip</a></li>
+                <li><a href="destinations.html" >Destinations</a></li>
+                <li><a href="experiences.html" >Experiences</a></li>
+                <li><a href="plan.html" >Plan Your Trip</a></li>
             </ul>
         </div>
 
@@ -185,6 +187,7 @@
     </div>
 </footer>
 
+<script src="common.js"></script>
 <script src="plan.js"></script>
 
 </body>
